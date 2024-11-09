@@ -9,8 +9,6 @@ elif {chosen_food} == "Cereal":
 	Ugh, stale cereal. It must've been left open. Maybe George decided to get himself a midnight snack and forgot to close the box back up.
 elif {chosen_food} == "Ramen":
 	Ramen's a fine snack but it lacks nutrition. At least it's cheap.
-	Time for work. Almost there now.
-	do Global.switch_to_scene("work")
 	do Global.change_wellbeing("mom", 10.0, "minus")
 Time for your son's breakfast
 do Global.shop_for_food("son", "Ramen", "Omelet")

@@ -1,0 +1,19 @@
+Oh, it looks like this homeless man is trying to say something to you.\
+Do you want to talk to him or ignore him?
+- Talk to him
+	homeless_man: Hey. My name's Melvin. You got $5 to spare?
+	- Here you go
+		do Global.purchase("5.0")
+		homeless_man: Oh, wow! Thank you so much! Have a blessed day.
+		do Global.change_wellbeing("mom", 8.0, "plus")
+		[wait time="0.8"]
+		It seems like that homeless guy was pretty grateful. I bet giving to others makes you feel pretty good.
+	- No, sorry
+		homeless_man: Oh. That's fine, I hope you have a good day ma'am.
+		[wait time="0.8"]
+		It doesn't feel good to refuse help to people less fortunate, but it's not like you're much better off yourself.
+- Ignore him
+	He probably just wanted money.
+Well, you're almost at your job now. Time for another day of work at the restaurant.
+do Global.switch_to_scene("work")
+[end_timeline]

@@ -1,0 +1,27 @@
+# Morning of day one, choices that increase wellbeing are calls that run the change_wellbeing function on the Global script
+# Because Dialogic lowkey sucks ass when it comes to variables in general
+# Here's an example of the usage to increase mom's wellbeing by 4 points (on a 0-100 scale remember)
+# On autoload Global call change_wellbeing with arguments "mom", 4.0, "plus"
+Good morning! Now that you're up, it's time to get breakfast for yourself and your kids.
+Select which breakfast you would like to buy for yourself.
+do Global.shop_for_food("mom", "Omelet", "Cereal")
+if {chosen_food} == "Omelet":
+	Good healthy choice! Now, let's pick out breakfast for your kids.
+	do Global.change_wellbeing("mom", 4.0, "plus")
+elif {chosen_food} == "Cereal":
+	That's a good choice to save some money, but it might not be the healthiest option. Let's pick out breakfast for your kids now!
+else:
+	Oh... no breakfast today? It's not good to ignore your wellbeing like that. Let's go pick out breakfast for your kids now.
+	do Global.change_wellbeing("mom", 10.0, "minus")
+do Global.shop_for_food("son", "Omelet", "Cereal")
+if {chosen_food} == "Omelet":
+	I'm sure your son will like that omelet!
+	do Global.change_wellbeing("son", 4.0, "plus")
+elif {chosen_food} == "Cereal":
+	Your son might enjoy the cereal, but it's probably better for his health to stay away from such sugary options. But of course, it's fine on occasion.
+else:
+	No breakfast for your son? I bet that's gonna make him sad. Won't you feel guilty about that too?
+	do Global.change_wellbeing("son", 10.0, "minus")
+Now that you've done your shopping for breakfast, it's time to walk to work!
+do Global.walk_to_work()
+[end_timeline]

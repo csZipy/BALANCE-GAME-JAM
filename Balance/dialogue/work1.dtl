@@ -1,0 +1,6 @@
+Time to work! You're a waitress at this restaurant. You have to deliver food items to the tables without dropping any of them.
+Use the arrow keys to move your plate left and right. Deliver as many items as you can before your shift is over and earn $1 per item delivered.
+You will lose $1 for each item dropped. Make sure to keep your balance and don't bite off more than you can chew. Click "OK" when you're ready to start.
+- OK
+	[signal arg="start_work"]
+[end_timeline]

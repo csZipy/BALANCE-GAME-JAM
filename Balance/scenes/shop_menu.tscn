@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://js48hr28lr0g"]
+
+[ext_resource type="Script" path="res://scripts/shop_menu.gd" id="1_apv8w"]
+[ext_resource type="Texture2D" uid="uid://cvd5vr223cu71" path="res://assets/store_background.jpg" id="2_gnoq5"]
+[ext_resource type="PackedScene" uid="uid://bbeectpo405b8" path="res://scenes/balance_card.tscn" id="3_24e0l"]
+
+[node name="ShopMenu" type="Node2D"]
+script = ExtResource("1_apv8w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemContainer" type="HBoxContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(800, 0)
+offset_left = 561.0
+offset_top = 242.0
+offset_right = 1361.0
+offset_bottom = 471.0
+alignment = 1
+
+[node name="NothingButton" type="Button" parent="CanvasLayer"]
+offset_left = 1505.0
+offset_top = 729.0
+offset_right = 1848.0
+offset_bottom = 987.0
+theme_override_font_sizes/font_size = 40
+text = "Purchase nothing"
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.65834, 0.65834, 0.65834, 1)
+position = Vector2(-11, -82)
+scale = Vector2(1.45, 1.45)
+texture = ExtResource("2_gnoq5")
+centered = false
+
+[node name="BalanceCard" parent="." instance=ExtResource("3_24e0l")]
+position = Vector2(1396, 105)
+
+[node name="ShopperLabel" type="Label" parent="."]
+offset_left = 80.0
+offset_top = 61.0
+offset_right = 999.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 80
+text = "Currently shopping for:"
+
+[connection signal="pressed" from="CanvasLayer/NothingButton" to="." method="_on_nothing_button_pressed"]

@@ -1,0 +1,45 @@
+Welcome home! Your son was waiting for you to get back.
+son: Hi Mom! How was work today?
+- It was good
+	son: Oh that's super awesome!
+- It was tough
+	son: Oh. Well I hope tomorrow isn't tough.
+son: Do you want to watch some tv with me? I was in the middle of an episode of Spongebob.
+- Sure
+	son: Yay! Let's watch.
+	You watch Spongebob with your son until the episode finishes and the commercials play.
+	son: Woah! Do you see that toy in the commercial?? It looks so cool! I want it so bad! Can I have it???
+	- Buy the toy ($15)
+		do Global.purchase(15.0)
+		son: YAY!!!!!! Thanks Mom!
+		do Global.change_wellbeing("son", 4.0, "plus")
+	- Not today
+		son: Aw... okay. I just really wanted it that's all.
+It's dinner time! What should get yourself to eat tonight?
+do Global.shop_for_food("mom", "Salmon", "Cheeseburger", "Grilled Chicken")
+if {chosen_food} == "Salmon":
+	That's a really healthy option, but that's quite expensive don't you think? Maybe it's better to try and save money for later.
+	do Global.change_wellbeing("mom", 6.0, "plus")
+elif {chosen_food} == "Cheeseburger":
+	Not very healthy, but better than nothing.
+elif {chosen_food} == "Grilled Chicken":
+	Grilled chicken is yummy and healthy. That's a good choice!
+	do Global.change_wellbeing("mom", 5.0, "plus")
+else:
+	No dinner for you? That's really gonna take a toll on your wellbeing, don't you think?
+	do Global.change_wellbeing("mom", 10.0, "minus")
+Time to pick a meal for your son.
+do Global.shop_for_food("son", "Cheeseburger", "Grilled Chicken", "Spaghetti")
+if {chosen_food} == "Cheeseburger":
+	I bet he'll like the cheeseburger, but it might not be the healthiest option for him.
+elif {chosen_food} == "Grilled Chicken":
+	Can't go wrong with grilled chicken.
+	do Global.change_wellbeing("son", 5.0, "plus")
+elif {chosen_food} == "Spaghetti":
+	Spaghetti isn't very filling, but your son will probably like it anyway.
+else:
+	Making your child skip dinner is very harmful to their development. George is not happy about this.
+	do Global.change_wellbeing("son", 15.0, "minus")
+After eating, it's time for bed. Sleep well!
+do Global.fall_asleep()
+[end_timeline]

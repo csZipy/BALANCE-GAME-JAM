@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://qpvp71u11d7u"]
+
+[ext_resource type="PackedScene" uid="uid://byye6y1b0jm4k" path="res://scenes/tray.tscn" id="1_8qh0u"]
+[ext_resource type="Script" path="res://scripts/work.gd" id="1_ydqvf"]
+[ext_resource type="Texture2D" uid="uid://tyjs7ktemssy" path="res://assets/restaurant.jpg" id="2_jtjvj"]
+[ext_resource type="PackedScene" uid="uid://bbeectpo405b8" path="res://scenes/balance_card.tscn" id="3_ysehd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkym2"]
+size = Vector2(251, 700)
+
+[node name="Work" type="Node2D"]
+script = ExtResource("1_ydqvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.396078, 0.396078, 0.396078, 1)
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("2_jtjvj")
+centered = false
+
+[node name="Tray" parent="." instance=ExtResource("1_8qh0u")]
+position = Vector2(335, 776)
+scale = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NewItemButton" type="Button" parent="CanvasLayer"]
+offset_left = 161.0
+offset_top = 72.0
+offset_right = 491.0
+offset_bottom = 345.0
+theme_override_font_sizes/font_size = 30
+text = "Click to take a new item
++$1 per item delivered"
+
+[node name="EndButton" type="Button" parent="CanvasLayer"]
+offset_left = 1258.0
+offset_top = 147.0
+offset_right = 1585.0
+offset_bottom = 338.0
+text = "(DEBUG)
+End work day"
+
+[node name="DeliveryZone" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="DeliveryZone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeliveryZone"]
+position = Vector2(1785, 607)
+shape = SubResource("RectangleShape2D_dkym2")
+
+[node name="TableLabel" type="Label" parent="DeliveryZone"]
+offset_left = 1661.0
+offset_top = 344.0
+offset_right = 1909.0
+offset_bottom = 505.0
+text = "TABLE
+(drop off items here)"
+
+[node name="DeliverMarker" type="Marker2D" parent="."]
+position = Vector2(1703, 547)
+
+[node name="BalanceCard" parent="." instance=ExtResource("3_ysehd")]
+position = Vector2(799, 47)
+
+[node name="TrayItems" type="Node" parent="."]
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 667.0
+offset_top = 208.0
+offset_right = 1018.0
+offset_bottom = 333.0
+theme_override_font_sizes/font_size = 40
+text = "TIME REMAINING: "
+
+[node name="WorkdayTimer" type="Timer" parent="."]
+wait_time = 90.0
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/NewItemButton" to="." method="_on_new_item_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/EndButton" to="." method="work_day_end"]
+[connection signal="body_entered" from="DeliveryZone" to="." method="_on_delivery_zone_body_entered"]
+[connection signal="timeout" from="WorkdayTimer" to="." method="_on_workday_timer_timeout"]

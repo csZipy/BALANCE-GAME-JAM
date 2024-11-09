@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4sblr5dxj8vy"]
+
+[ext_resource type="Script" path="res://scripts/item_panel.gd" id="1_bxseo"]
+[ext_resource type="Texture2D" uid="uid://cod30wmcq3qn8" path="res://icon.svg" id="1_cuge3"]
+
+[node name="ItemPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = -1920.0
+offset_bottom = -1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_bxseo")
+
+[node name="ItemButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 18.0
+offset_right = 294.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 40
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+position = Vector2(167, 148)
+scale = Vector2(2, 2)
+texture = ExtResource("1_cuge3")
+
+[node name="ItemLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 277.0
+offset_right = 284.0
+offset_bottom = 345.0
+theme_override_font_sizes/font_size = 40
+text = "item name
+$100"
+horizontal_alignment = 1

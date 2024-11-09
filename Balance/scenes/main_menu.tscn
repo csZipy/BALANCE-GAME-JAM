@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbsw87d5ukqxw"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_t5syn"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_t5syn")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartButton" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 510.0
+offset_right = 1201.0
+offset_bottom = 686.0
+text = "Start game"
+
+[node name="Title" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 230.0
+offset_right = 1394.0
+offset_bottom = 367.0
+theme_override_font_sizes/font_size = 100
+text = "BALANCE GAME!!!!!!!"
+
+[connection signal="pressed" from="UI/StartButton" to="." method="_on_start_button_pressed"]

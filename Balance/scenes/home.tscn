@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5iek0lf6tfhm"]
+
+[ext_resource type="Texture2D" uid="uid://d03hh2diawijd" path="res://assets/living_room_morning.png" id="1_66446"]
+[ext_resource type="Script" path="res://scripts/home.gd" id="1_f5mu8"]
+[ext_resource type="PackedScene" uid="uid://bbeectpo405b8" path="res://scenes/balance_card.tscn" id="3_s343g"]
+
+[node name="Home" type="Node2D"]
+script = ExtResource("1_f5mu8")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_66446")
+
+[node name="BalanceCard" parent="." instance=ExtResource("3_s343g")]
+position = Vector2(763, 95)

@@ -1,0 +1,5 @@
+Phew, tough day at work.
+Oh, there's the homeless man again. It looks like he's sleeping now.
+It's time to walk back home and see your son!
+do Global.switch_to_scene("home")
+[end_timeline]

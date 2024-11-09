@@ -1,0 +1,16 @@
+Sometimes it feels awful to not have a car, but a daily walk is always a great time to process emotions and soak in the sunshine.
+There's the old man again. Still asleep. It looks like a $50 bill fell out of his wallet, and it's just sitting there by his feet. Maybe you should wake him up so he doesn't lose it. On the other hand, if you didn't do anything, then the bill would probably get carried away by the wind.
+- Wake up Melvin
+	homeless_man: ...Oh, good morning. What's going on?
+	- I think you dropped this
+	homeless_man: Oh yes! I was gonna use that to get some groceries today, thank you so much for helping me!
+	do Global.change_wellbeing("mom", 10.0, "plus")
+	That was a kind act. Melvin is very grateful for you.
+- Take the $50 bill
+	You take the $50 bill from the homeless man. Who knows what he was going to use it for.
+	do Global.purchase("homeless_man")
+	Still, that's an act that's hard to forgive. Are you proud of yourself?
+	do Global.change_wellbeing("mom", 20.0, "minus")
+Time for work. Almost there now.
+do Global.switch_to_scene("work")
+[end_timeline]

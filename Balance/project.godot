@@ -31,7 +31,9 @@ directories/dtl_directory={
 "morning2": "res://dialogue/morning2.dtl",
 "night1": "res://dialogue/night1.dtl",
 "walk_home1": "res://dialogue/walk_home1.dtl",
+"walk_home2": "res://dialogue/walk_home2.dtl",
 "walk_to_work1": "res://dialogue/walk_to_work1.dtl",
+"walk_to_work2": "res://dialogue/walk_to_work2.dtl",
 "work1": "res://dialogue/work1.dtl"
 }
 variables={

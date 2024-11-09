@@ -102,6 +102,12 @@ func get_price(item) -> float:
 			return 5.00
 		"Grilled Chicken":
 			return 6.00
+		"Spaghetti":
+			return 1.75
+		"Ramen":
+			return 0.75
+		"homeless_man": # shitty workaround for Dialogic lmao
+			return -50.00
 	
 	# Return 100 if the item can't be found
 	return 100

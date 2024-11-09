@@ -1,8 +1,27 @@
-alright robert that's all i've got done. i know the scope is pretty big for a 3 day game jam lol, sorry about that, i'm just having a lot of fun making this game. honestly, you can just add whatever you want and if you want to leave it unfinished then that's fine and you can just send it back to me with enough time to finish it up by Sunday at 5\:00
-Directions for development from here\:\
--Fill in missing textures (homeless man, plate items, possibly shopping icons for foods)\
--Add game over logic (just switch to a game over screen or smth)\
--New dialogue for more days, total # of days can be whatever we can get done in time\
--If you last through all days without either wellbeings reaching 0, and you can afford the bills, you win (yippie!!!)
-All that is just my vision for how the rest of development will go but you do you and just do whatever you want with the game honestly. It's pretty narrative heavy but it's gonna be great as long as it stays as a story about poverty and the terrible reality that comes with balancing your children's needs along with your own and your monetary needs, especially as a single mother.
-\-Connor
+Good morning! I hope you slept well. It's almost time for breakfast, but first, I want to inform you that you have a utilities bill for $200 due in 3 days. If you aren't able to pay it off in time, it will be a massive blow to your wellbeing.
+Remember, if you or your son's wellbeing drops too far, then you lose the game.
+Alright let's pick your breakfast for today.
+do Global.shop_for_food("mom", "Omelet", "Cereal", "Ramen")
+if {chosen_food} == "Omelet":
+	A tasty omelet, there's nothing better.
+	do Global.change_wellbeing("mom", 4.0, "plus")
+elif {chosen_food} == "Cereal":
+	Ugh, stale cereal. It must've been left open. Maybe George decided to get himself a midnight snack and forgot to close the box back up.
+elif {chosen_food} == "Ramen":
+	Ramen's a fine snack but it lacks nutrition. At least it's cheap.
+	Time for work. Almost there now.
+	do Global.switch_to_scene("work")
+	do Global.change_wellbeing("mom", 10.0, "minus")
+Time for your son's breakfast
+do Global.shop_for_food("son", "Ramen", "Omelet")
+if {chosen_food} == "Ramen":
+	Low in cost, high in sodium. George doesn't seem to mind the taste.
+elif {chosen_food} == "Omelet":
+	son: Thanks Mom! This omelet is super tasty.
+	do Global.change_wellbeing("son", 4.0, "plus")
+else:
+	son: Why can't I have breakfast today? Did I do something wrong?
+	do Global.change_wellbeing("son", 10.0, "minus")
+Breakfast is served, now it's time for work.
+do Global.walk_to_work()
+[end_timeline]
